@@ -1,0 +1,40 @@
+# CMake artifacts
+build/
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+Testing/
+DartConfiguration.tcl
+
+# Executables & Binaries
+*.so
+*.a
+*.o
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.exe
+ecatekv_server
+ecatekv_client
+tests/test_memory_store
+tests/test_protocol
+tests/test_wal
+
+# Logging and persistence
+*.log
+ecatekv.log*
+test_memory_store_wal.log*
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
