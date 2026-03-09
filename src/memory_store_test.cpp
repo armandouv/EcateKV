@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "ecatekv/memory_store.h"
+#include "memory_store.h"
 #include <thread>
 #include <vector>
 

@@ -1,4 +1,4 @@
-#include "ecatekv/protocol.h"
+#include "protocol.h"
 #include <iostream>
 #include <sys/socket.h>
 #include <netinet/in.h>

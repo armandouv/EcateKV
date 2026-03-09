@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ECATEKV_SRC_CONNECTION_H_
+#define ECATEKV_SRC_CONNECTION_H_
 
 #include "protocol.h"
 #include <vector>
@@ -39,3 +40,6 @@ public:
 };
 
 } // namespace ecatekv
+
+
+#endif  // ECATEKV_SRC_CONNECTION_H_

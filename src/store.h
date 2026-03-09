@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ECATEKV_SRC_STORE_H_
+#define ECATEKV_SRC_STORE_H_
 
 #include <string>
 #include <vector>
@@ -41,3 +42,6 @@ public:
 };
 
 } // namespace ecatekv
+
+
+#endif  // ECATEKV_SRC_STORE_H_

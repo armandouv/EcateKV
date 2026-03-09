@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ECATEKV_SRC_WAL_H_
+#define ECATEKV_SRC_WAL_H_
 
 #include "protocol.h"
 #include <string>
@@ -43,3 +44,6 @@ private:
 };
 
 } // namespace ecatekv
+
+
+#endif  // ECATEKV_SRC_WAL_H_

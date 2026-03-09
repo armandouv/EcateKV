@@ -1,4 +1,4 @@
-#include "ecatekv/wal.h"
+#include "wal.h"
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdexcept>

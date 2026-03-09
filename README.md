@@ -46,12 +46,13 @@ graph TD
 ## Directory Structure
 ```
 EcateKV/
-├── CMakeLists.txt        # Top-level build config
-├── include/ecatekv/      # Public API headers (Store, Protocol, Server, WAL)
-├── src/                  # Core implementations (memory engine, epoll loop)
-│   ├── main.cpp          # ecatekv_server executable entrypoint
-│   └── client.cpp        # ecatekv_client benchmark tool
-└── tests/                # GoogleTest suite for components
+├── CMakeLists.txt         # Top-level build config
+└── src/                   # Core implementation and tests
+    ├── main.cpp           # ecatekv_server entrypoint
+    ├── client.cpp         # ecatekv_client benchmark tool
+    ├── {component}.cpp    # Implementation files
+    ├── {component}.h      # Header files (Google style include guards)
+    └── {component}_test.cpp # Integrated unit tests
 ```
 
 ## Protocol Definition

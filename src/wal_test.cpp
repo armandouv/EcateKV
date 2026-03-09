@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "ecatekv/wal.h"
+#include "wal.h"
 
 using namespace ecatekv;
 

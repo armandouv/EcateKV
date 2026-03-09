@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ECATEKV_SRC_SOCKET_UTILS_H_
+#define ECATEKV_SRC_SOCKET_UTILS_H_
 
 #include <fcntl.h>
 #include <unistd.h>
@@ -13,3 +14,6 @@ inline bool MakeNonBlocking(int fd) {
 }
 
 } // namespace ecatekv
+
+
+#endif  // ECATEKV_SRC_SOCKET_UTILS_H_

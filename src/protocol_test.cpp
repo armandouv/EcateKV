@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "ecatekv/protocol.h"
+#include "protocol.h"
 #include <string>
 
 using namespace ecatekv;

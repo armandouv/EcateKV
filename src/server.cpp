@@ -1,5 +1,5 @@
-#include "ecatekv/server.h"
-#include "ecatekv/socket_utils.h"
+#include "server.h"
+#include "socket_utils.h"
 #include <sys/epoll.h>
 #include <sys/socket.h>
 #include <netinet/in.h>

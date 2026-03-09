@@ -1,5 +1,5 @@
-#include "ecatekv/server.h"
-#include "ecatekv/memory_store.h"
+#include "server.h"
+#include "memory_store.h"
 #include <iostream>
 #include <memory>
 #include <csignal>

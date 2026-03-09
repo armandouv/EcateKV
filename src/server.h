@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ECATEKV_SRC_SERVER_H_
+#define ECATEKV_SRC_SERVER_H_
 
 #include "connection.h"
 #include "store.h"
@@ -57,3 +58,6 @@ private:
 };
 
 } // namespace ecatekv
+
+
+#endif  // ECATEKV_SRC_SERVER_H_

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ECATEKV_SRC_MEMORY_STORE_H_
+#define ECATEKV_SRC_MEMORY_STORE_H_
 
 #include "store.h"
 #include "wal.h"
@@ -54,3 +55,6 @@ private:
 };
 
 } // namespace ecatekv
+
+
+#endif  // ECATEKV_SRC_MEMORY_STORE_H_

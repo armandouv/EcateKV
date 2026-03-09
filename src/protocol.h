@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ECATEKV_SRC_PROTOCOL_H_
+#define ECATEKV_SRC_PROTOCOL_H_
 #include <cstdint>
 #include <vector>
 #include <string>
@@ -70,3 +71,6 @@ public:
 };
 
 } // namespace ecatekv
+
+
+#endif  // ECATEKV_SRC_PROTOCOL_H_
