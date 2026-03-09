@@ -101,5 +101,17 @@ cd build
 ```
 *(You should see throughputs exceeding 10,000 ops/sec locally!)*
 
+
+### Roadmap
+- LSM trees
+- epoll -> io_uring
+- Make it distributed and fault tolerant via Paxos/Raft.
+- Lock-free data structures.
+- User-space Threading
+- SIMD acceleration
+- eBPF Monitoring
+- NUMA Awareness
+
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
