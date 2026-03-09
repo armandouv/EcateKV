@@ -10,6 +10,39 @@ The project was built over multiple iterative phases focusing on raw performance
 - **Storage Engine:** Relies on an in-memory `std::unordered_map` protected by a Reader-Writer lock (`std::shared_mutex`). This permits massive parallel reads while preserving thread safety during exclusive writes.
 - **Persistence:** Mutating operations (`SET`, `DEL`) are immediately serialized and appended to a Write-Ahead Log (WAL) on disk using atomic `pwrite` calls. On startup, the engine replays the log to fully recover its state, ensuring resilience against power failures and crashes.
 
+## Architecture
+
+The system is highly decoupled to separate networking from data persistence. 
+
+```mermaid
+graph TD
+    Client1["TCP Client"]
+    Client2["TCP Client"]
+    
+    subgraph EcateKV
+        Server["Server Node"]
+        Protocol["Protocol Parser"]
+        Store["MemoryStore"]
+        WAL[("Write-Ahead Log")]
+    end
+    
+    Client1 -->|"epoll Event"| Server
+    Client2 -->|"epoll Event"| Server
+    
+    Server -->|"Raw Bytes"| Protocol
+    Protocol -->|"Parsed Message"| Server
+    
+    Server -->|"SET / GET / DEL"| Store
+    Store -->|"Append Mutation"| WAL
+```
+
+### Flow of a Request
+1. **Client Interface:** Connects via a standard TCP socket and transmits byte streams using the custom binary protocol.
+2. **Server & Connection:** The non-blocking `epoll` multiplexer catches inbound events. It reads bytes from the socket into a generic dynamical `read_buffer`.
+3. **Protocol Parser:** Iterates through the raw byte buffer looking for complete 12-byte headers + variable payloads, extracting clean semantic `Message` structures.
+4. **Memory Store:** Dispatched by the server, it obtains a Reader or Writer (`std::shared_mutex`) lock. For reads, it extracts keys in `O(1)` time. 
+5. **Write-Ahead Log (WAL):** During any mutating `SET` or `DEL`, before the lock is released or the client ACK'd, the MemoryStore natively serializes the mutation and pushes it sequentially to the disk log safely securing the data.
+
 ## Directory Structure
 ```
 EcateKV/
