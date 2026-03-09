@@ -80,12 +80,19 @@ cmake ..
 make -j4
 ```
 
-### Running Tests
-The project relies on GoogleTest (automatically downloaded via CMake FetchContent).
 ```bash
 cd build
 ctest -V
 ```
+
+### IDE Support (Fixing Linting/IntelliSense)
+If your IDE (VS Code, CLion, Neovim) shows "file not found" errors for GoogleTest headers, it's because those are downloaded into the `build/` directory at configuration time.
+
+To fix this, we've enabled `CMAKE_EXPORT_COMPILE_COMMANDS`. After running `cmake ..`, you can link the generated database to your project root:
+```bash
+ln -s build/compile_commands.json .
+```
+Then restart your IDE's language server (e.g., `clangd` or Microsoft C++ extension).
 
 ### Running the Server
 ```bash
